@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>6419 Ice Website</title>
+  <link rel="icon" type="image/png" href="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8">
+  <link rel="stylesheet" href="global.min.css">
+
+  <style>
+    /* SEARCH BAR STYLES */
+    .search-container {
+      display: inline-block;
+      position: relative;
+      margin-right: 10px;
+    }
+
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: grey;
+      border-radius: 50%;
+      padding: 5px;
+      transition: width 0.3s ease, border-radius 0.3s ease;
+      width: 40px;
+      overflow: hidden;
+    }
+
+    .search-bar.expanded {
+      width: 250px;
+      border-radius: 25px;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      margin-left: 10px;
+      width: 100%;
+      display: none;
+      border-bottom: 1px solid white;
+      padding: 2px;
+    }
+
+    .search-bar.expanded input {
+      display: inline-block;
+    }
+
+    #searchBtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-size: 16px;
+    }
+
+    .search-results {
+      position: absolute;
+      top: 45px;
+      left: 0;
+      background: #f0f0f0;
+      color: black;
+      width: 250px;
+      border-radius: 10px;
+      padding: 5px;
+      display: none;
+      z-index: 999;
+    }
+
+    .search-results.show {
+      display: block;
+    }
+
+    .search-result {
+      padding: 5px 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .search-result:last-child {
+      border-bottom: none;
+    }
+
+    .search-result:hover {
+      background-color: #ddd;
+    }
+
+    .search-result-title {
+      font-weight: bold;
+    }
+
+    .search-result-description {
+      font-size: 12px;
+    }
+
+    .no-results {
+      padding: 5px 10px;
+      color: #666;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .logo {
+      height: 40px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <!-- Search bar goes here -->
+    <div class="search-container">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button id="searchBtn">🔍</button>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </div>
+
+    <!-- Logo -->
+    <a href="index">
+      <img class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8" alt="ICE">
+    </a>
+
+    <!-- Menu button -->
+    <button class="menu-button" onclick="toggleSidebar()">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+  </header>
+
+  <!-- Sidebar -->
+  <div id="sidebar" class="sidebar">
+    <a href="index">Home</a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="about">About</a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="register">Register</a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="donate">Donate</a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="sponsors">Sponsors</a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="contact">Contact Us</a>
+    <hr style="border-top: 1px;margin: 0;">
+  </div>
+
+  <!-- Footer -->
+  <footer style="text-align:left">
+    <p>© ICE</p>
+  </footer>
+  <footer style="background-color:transparent; text-align:right;">
+    <p>socials</p>
+  </footer>
+
+  <!-- Sidebar toggle JS -->
+  <script src="sidebar.js"></script>
+
+  <!-- Search functionality -->
+  <script>
+    const searchBtn = document.getElementById('searchBtn');
+    const searchBar = document.querySelector('.search-bar');
+    const searchInput = document.getElementById('searchInput');
+    const searchResults = document.getElementById('searchResults');
+
+    // Configurable pages list
+    const pages = [
+      { title: "Home", description: "Go to homepage", link: "index" },
+      { title: "About", description: "Learn more about us", link: "about" },
+      { title: "Register", description: "Sign up for our program", link: "register" },
+      { title: "Donate", description: "Support our cause", link: "donate" },
+      { title: "Sponsors", description: "Our sponsors", link: "sponsors" },
+      { title: "Contact", description: "Reach out to us", link: "contact" }
+    ];
+
+    // Expand on hover
+    searchBar.addEventListener('mouseenter', () => {
+      searchBar.classList.add('expanded');
+    });
+
+    // Collapse on mouseleave if not focused or filled
+    searchBar.addEventListener('mouseleave', () => {
+      if (!searchInput.matches(':focus') && searchInput.value === '') {
+        searchBar.classList.remove('expanded');
+        searchResults.classList.remove('show');
+      }
+    });
+
+    // Keep expanded on focus
+    searchInput.addEventListener('focus', () => {
+      searchBar.classList.add('expanded');
+    });
+
+    // Live search input
+    searchInput.addEventListener('input', () => {
+      const query = searchInput.value.toLowerCase().trim();
+      searchResults.innerHTML = '';
+
+      if (query === '') {
+        searchResults.classList.remove('show');
+        return;
+      }
+
+      const matched = pages.filter(page =>
+        page.title.toLowerCase().includes(query) ||
+        page.description.toLowerCase().includes(query)
+      );
+
+      if (matched.length === 0) {
+        searchResults.innerHTML = `<div class="no-results">No search results</div>`;
+      } else {
+        matched.forEach(page => {
+          const result = document.createElement('div');
+          result.className = 'search-result';
+          result.innerHTML = `
+            <div class="search-result-title">${page.title}</div>
+            <div class="search-result-description">${page.description}</div>
+          `;
+          result.addEventListener('click', () => {
+            window.location.href = page.link;
+          });
+          searchResults.appendChild(result);
+        });
+      }
+
+      searchResults.classList.add('show');
+    });
+
+    // Collapse when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!searchBar.contains(e.target)) {
+        if (searchInput.value === '') {
+          searchBar.classList.remove('expanded');
+          searchResults.classList.remove('show');
+        }
+      }
+    });
+  </script>
+</body>
+</html>
