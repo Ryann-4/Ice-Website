@@ -32,7 +32,7 @@ header {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    text-align:top;
+    text-align:right;
 }
 footer {
     padding: 2px;
@@ -139,8 +139,9 @@ html {
     }
 
     .logo {
-      margin-left: 20px;
-      height: 40px;
+      margin-right: 20px;
+      height: 60px;
+      margin-top: -25px;
     }
 
 /*end header stuff*/
