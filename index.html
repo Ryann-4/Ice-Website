@@ -1,106 +1,65 @@
 <html>
 <head>
   <title>6419 Ice Website</title>
-  <link rel="icon" type="image/png" href="">
+  <link rel="icon" type="image/png" href="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8">
   <link rel="stylesheet" href="global.min.css">
-  <meta property="og:title" content="6419 Ice Website">
-
-  <style>
-
-    /* Hamburger button */
-    .menu-button {
-      background: none;
-      border: none;
-      cursor: pointer;
-      padding: 0;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 20px;
-      margin-right: 15px;
-    }
-
-    .menu-button span {
-      width: 25px;
-      height: 3px;
-      background-color:white;
-      margin-bottom:5px;
-    }
-
-    /* Sidebar */
-    .sidebar {
-      position: fixed;
-      top: 60px; /* below header */
-      left: -500px;
-      width: 500px;
-      height: calc(100% - 60px);
-      background-color: grey;
-      transition: left 0.3s ease;
-      display: flex;
-      flex-direction: column;
-      padding-top: 10px;
-      z-index: 999;
-    }
-
-    .sidebar.open {
-      left: 0;
-    }
-
-    .sidebar a {
-      color: white;
-      text-decoration: none;
-      padding: 10px;
-      display: block;
-    }
-
-    .sidebar a:not(:last-child) {
-      margin-bottom: 10px;
-    }
-
-    .logo {
-      margin-left: 20px;
-      height: 40px;
-    }
-
-  </style>
 </head>
-
 <body>
-  <!-- Header -->
   <header>
     <button class="menu-button" onclick="toggleSidebar()">
-      <span></span>
-      <span></span>
-      <span></span>
+      <span>
+      </span>
+      <span>
+      </span>
+      <span>
+      </span>
     </button>
-
     <a href="index.html">
-      <img class="logo" src="" alt="ICE">
+      <img style="right:90; top:14;" class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8" alt="ICE">
     </a>
   </header>
-
-  <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
-    <a href="index">Home</a>
-    <a href="about">About</a>
-    <a href="register">Register</a>
-    <a href="donate">Donate</a>
-    <a href="sponsors">Sponsors</a>
+    <a href="index">
+      Home
+    </a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="about">
+      About
+    </a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="register">
+      Register
+    </a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="donate">
+      Donate
+    </a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="sponsors">
+      Sponsors
+    </a>
+    <hr style="border-top: 1px;margin: 0;">
+    <a href="contact">
+      Contact Us
+    </a>
+    <hr style="border-top: 1px;margin: 0;">
   </div>
-
   <script>
     function toggleSidebar() {
       const sidebar = document.getElementById("sidebar");
       sidebar.classList.toggle("open");
     }
   </script>
-
-  <!-- Footers -->
   <footer style="text-align:left">
-    <p>© ICE</p>
+    <p>
+      © ICE
+    </p>
   </footer>
   <footer style="background-color:transparent; text-align:right;">
-    <p>socials</p>
+    <img class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8">
+    <p>
+      socials
+    </p>
   </footer>
 </body>
 </html>

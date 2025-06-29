@@ -89,11 +89,6 @@ html {
 .headerbtn:hover {
     color:black;
 }
-.logo {
-    height:55px; 
-    vertical-align:bottom; 
-    position:fixed; 
-}
 .menu-button {
       background: none;
       border: none;
@@ -103,26 +98,29 @@ html {
       flex-direction: column;
       justify-content: space-between;
       height: 20px;
+      margin-right: 15px;
     }
 
     .menu-button span {
       width: 25px;
       height: 3px;
-      background: black;
+      background-color:white;
+      margin-bottom:5px;
     }
 
     /* Sidebar */
     .sidebar {
       position: fixed;
       top: 60px; /* below header */
-      left: -100px;
-      width: 100px;
+      left: -500px;
+      width: 500px;
       height: calc(100% - 60px);
       background-color: grey;
       transition: left 0.3s ease;
       display: flex;
       flex-direction: column;
       padding-top: 10px;
+      z-index: 999;
     }
 
     .sidebar.open {
@@ -139,5 +137,11 @@ html {
     .sidebar a:not(:last-child) {
       margin-bottom: 10px;
     }
+
+    .logo {
+      margin-left: 20px;
+      height: 40px;
+    }
+
 /*end header stuff*/
 /* text stuff */
