@@ -3,63 +3,70 @@
   <title>6419 Ice Website</title>
   <link rel="icon" type="image/png" href="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8">
   <link rel="stylesheet" href="global.min.css">
+  <style>
+    /* HEADER LAYOUT */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    header > * {
+      flex-shrink: 0;
+    }
+  </style>
 </head>
 <body>
   <header>
+  <div style="display: flex; align-items: center;">
     <button class="menu-button" onclick="toggleSidebar()">
-      <span>
-      </span>
-      <span>
-      </span>
-      <span>
-      </span>
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
+  </div>
+  <div style="display: flex; align-items: center; gap: 40px; margin-right: 20px;">
+    <div class="search-container">
+      <div class="search-bar">
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button id="searchBtn">🔍</button>
+        <div id="searchResults" class="search-results"></div>
+      </div>
+    </div>
     <a href="index">
       <img class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8" alt="ICE">
     </a>
-  </header>
+  </div>
+</header>
   <div id="sidebar" class="sidebar">
-    <a href="index">
-      Home
-    </a>
+    <a href="index">Home</a>
     <hr style="border-top: 1px;margin: 0;">
-    <a href="about">
-      About
-    </a>
+    <a href="about">About</a>
     <hr style="border-top: 1px;margin: 0;">
-    <a href="register">
-      Register
-    </a>
+    <a href="register">Register</a>
     <hr style="border-top: 1px;margin: 0;">
-    <a href="donate">
-      Donate
-    </a>
+    <a href="donate">Donate</a>
     <hr style="border-top: 1px;margin: 0;">
-    <a href="sponsors">
-      Sponsors
-    </a>
+    <a href="sponsors">Sponsors</a>
     <hr style="border-top: 1px;margin: 0;">
-    <a href="contact">
-      Contact Us
-    </a>
+    <a href="contact">Contact Us</a>
     <hr style="border-top: 1px;margin: 0;">
   </div>
-  <script src="sidebar.js">
-  </script>
-  <center>
-  <h1 style="color:black; font-weight:bold;">Oh No! <br>
-Looks Like This Page Doesn't Exist :( <br>
-If you think this is a bug plaese reach out <a href="">here</a></h1>
-</center>
+  <br>
+  <br>
+  <br>
+  <br>
+  <h1 style="color:black;">Oh No! <br>
+Looks like this page doesn't exist! :(
+    <br>
+If you think this is a bug, please reach out <a href="">here</a></h1>
   <footer style="text-align:left">
-    <p>
-      © ICE
-    </p>
+    <p>© ICE</p>
   </footer>
   <footer style="background-color:transparent; text-align:right;">
-    <p>
-      socials
-    </p>
+    <p>socials</p>
   </footer>
+  <script src="sidebar.js"></script>
+  <script src="searchbar.js">    
+  </script>
 </body>
 </html>

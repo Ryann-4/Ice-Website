@@ -98,8 +98,8 @@ html {
       flex-direction: column;
       justify-content: space-between;
       height: 20px;
-      margin-left: 15px;
-      margin-top:15px;
+      margin-top:-15px;
+      margin-left: 10px;
     }
 
     .menu-button span {
@@ -107,6 +107,7 @@ html {
       height: 3px;
       background-color:white;
       margin-bottom:5px;
+      border-radius:10px;
     }
 
     /* Sidebar */
@@ -138,12 +139,99 @@ html {
     .sidebar a:not(:last-child) {
       margin-bottom: 10px;
     }
-
     .logo {
-      margin-right: 20px;
       height: 60px;
-      margin-top: -40px;
+    }
+    .search-container {
+      position: relative;
+      width: 250px;
+      display: flex;
+      justify-content: flex-end;
     }
 
+    .search-bar {
+      display: flex;
+      align-items: center;
+      background-color: grey;
+      height: 40px;
+      width: 40px;
+      border-radius: 50%;
+      padding: 5px;
+      transition: width 0.3s ease, border-radius 0.3s ease;
+      overflow: hidden;
+    }
+
+    .search-bar.expanded {
+      width: 100%;
+      border-radius: 25px;
+    }
+
+    .search-bar input {
+      border: none;
+      outline: none;
+      background: transparent;
+      color: white;
+      margin-left: 10px;
+      width: 100%;
+      display: none;
+      border-bottom: 1px solid white;
+      padding: 2px;
+    }
+
+    .search-bar.expanded input {
+      display: inline-block;
+    }
+
+    #searchBtn {
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: white;
+      font-size: 16px;
+    }
+
+    .search-results {
+      position: absolute;
+      top: 45px;
+      right: 0;
+      background: darkblue;
+      color: orange;
+      width: 100%;
+      border-radius: 10px;
+      padding: 5px;
+      display: none;
+      z-index: 999;
+    }
+
+    .search-results.show {
+      display: block;
+    }
+
+    .search-result {
+      padding: 5px 10px;
+      cursor: pointer;
+      border-bottom: 1px solid #444;
+    }
+
+    .search-result:last-child {
+      border-bottom: none;
+    }
+
+    .search-result:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .search-result-title {
+      font-weight: bold;
+    }
+
+    .search-result-description {
+      font-size: 12px;
+    }
+
+    .no-results {
+      padding: 5px 10px;
+      color: orange;
+    }
 /*end header stuff*/
 /* text stuff */
