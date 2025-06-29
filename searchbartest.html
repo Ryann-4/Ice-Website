@@ -1,10 +1,8 @@
-<!DOCTYPE html>
 <html>
 <head>
   <title>6419 Ice Website</title>
   <link rel="icon" type="image/png" href="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8">
   <link rel="stylesheet" href="global.min.css">
-
   <style>
     /* HEADER LAYOUT */
     header {
@@ -14,18 +12,20 @@
       padding: 10px;
     }
 
-    .logo {
-      height: 60px;
+    .menu-button {
       margin-left: 10px;
     }
 
-    /* SEARCH STYLES */
+    .logo {
+      height: 60px;
+      margin-right: 20px;
+    }
+
     .search-container {
       position: relative;
       width: 250px;
       display: flex;
       justify-content: flex-end;
-      margin-right: 10px;
     }
 
     .search-bar {
@@ -113,32 +113,37 @@
       color: orange;
     }
 
-    .menu-button {
-      margin-left: 10px;
+    /* Optional: Ensure header spacing */
+    header > * {
+      flex-shrink: 0;
     }
   </style>
 </head>
 <body>
   <header>
-    <!-- Left: Menu button and logo -->
+    <!-- Left: Menu button -->
     <div style="display: flex; align-items: center;">
       <button class="menu-button" onclick="toggleSidebar()">
         <span></span>
         <span></span>
         <span></span>
       </button>
-      <a href="index">
-        <img class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8" alt="ICE">
-      </a>
     </div>
 
-    <!-- Right: Search bar -->
+    <!-- Middle-right: Search bar -->
     <div class="search-container">
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Search...">
         <button id="searchBtn">🔍</button>
         <div id="searchResults" class="search-results"></div>
       </div>
+    </div>
+
+    <!-- Far right: Logo -->
+    <div>
+      <a href="index">
+        <img class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8" alt="ICE">
+      </a>
     </div>
   </header>
 
@@ -185,12 +190,10 @@
       { title: "Contact", description: "Reach out to us", link: "contact" }
     ];
 
-    // Expand on hover
     searchBar.addEventListener('mouseenter', () => {
       searchBar.classList.add('expanded');
     });
 
-    // Collapse if not focused and empty
     searchBar.addEventListener('mouseleave', () => {
       if (!searchInput.matches(':focus') && searchInput.value === '') {
         searchBar.classList.remove('expanded');
@@ -198,12 +201,10 @@
       }
     });
 
-    // Keep expanded on focus
     searchInput.addEventListener('focus', () => {
       searchBar.classList.add('expanded');
     });
 
-    // Live search input
     searchInput.addEventListener('input', () => {
       const query = searchInput.value.toLowerCase().trim();
       searchResults.innerHTML = '';
@@ -238,7 +239,6 @@
       searchResults.classList.add('show');
     });
 
-    // Collapse when clicking outside
     document.addEventListener('click', (e) => {
       if (!searchBar.contains(e.target)) {
         if (searchInput.value === '') {
