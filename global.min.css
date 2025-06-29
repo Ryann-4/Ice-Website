@@ -101,7 +101,6 @@ html {
       margin-top:-15px;
       margin-left: 10px;
     }
-
     .menu-button span {
       width: 25px;
       height: 3px;
@@ -109,8 +108,6 @@ html {
       margin-bottom:5px;
       border-radius:10px;
     }
-
-    /* Sidebar */
     .sidebar {
       position: fixed;
       top: 60px; /* below header */
@@ -124,18 +121,15 @@ html {
       padding-top: 10px;
       z-index: 999;
     }
-
     .sidebar.open {
       left: 0;
     }
-
     .sidebar a {
       color: white;
       text-decoration: none;
       padding: 10px;
       display: block;
     }
-
     .sidebar a:not(:last-child) {
       margin-bottom: 10px;
     }
@@ -148,7 +142,6 @@ html {
       display: flex;
       justify-content: flex-end;
     }
-
     .search-bar {
       display: flex;
       align-items: center;
@@ -160,12 +153,10 @@ html {
       transition: width 0.3s ease, border-radius 0.3s ease;
       overflow: hidden;
     }
-
     .search-bar.expanded {
       width: 100%;
       border-radius: 5px;
     }
-
     .search-bar input {
       border: none;
       outline: none;
@@ -177,11 +168,9 @@ html {
       border-bottom: 1px solid white;
       padding: 2px;
     }
-
     .search-bar.expanded input {
       display: inline-block;
     }
-
     #searchBtn {
       background: none;
       border: none;
@@ -189,7 +178,6 @@ html {
       color: white;
       font-size: 16px;
     }
-
     .search-results {
       position: absolute;
       top: 45px;
@@ -202,33 +190,26 @@ html {
       display: none;
       z-index: 999;
     }
-
     .search-results.show {
       display: block;
     }
-
     .search-result {
       padding: 5px 10px;
       cursor: pointer;
       border-bottom: 1px solid #444;
     }
-
     .search-result:last-child {
       border-bottom: none;
     }
-
     .search-result:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }
-
     .search-result-title {
       font-weight: bold;
     }
-
     .search-result-description {
       font-size: 12px;
     }
-
     .no-results {
       padding: 5px 10px;
       color: orange;
