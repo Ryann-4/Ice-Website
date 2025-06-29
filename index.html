@@ -6,19 +6,6 @@
   <meta property="og:title" content="6419 Ice Website">
 
   <style>
-    body {
-      margin: 0;
-      font-family: sans-serif;
-    }
-
-    header {
-      height: 60px;
-      background: #f0f0f0;
-      display: flex;
-      align-items: center;
-      padding: 0 15px;
-      position: relative;
-    }
 
     /* Hamburger button */
     .menu-button {
@@ -36,15 +23,15 @@
     .menu-button span {
       width: 25px;
       height: 3px;
-      background: black;
+      background-color:transparent;
     }
 
     /* Sidebar */
     .sidebar {
       position: fixed;
       top: 60px; /* below header */
-      left: -100px;
-      width: 100px;
+      left: -500px;
+      width: 500px;
       height: calc(100% - 60px);
       background-color: grey;
       transition: left 0.3s ease;
@@ -74,11 +61,6 @@
       height: 40px;
     }
 
-    .headerbtn {
-      position: absolute;
-      top: 14px;
-      text-decoration: none;
-    }
   </style>
 </head>
 
@@ -94,21 +76,15 @@
     <a href="index.html">
       <img class="logo" src="" alt="ICE">
     </a>
-
-    <a class="headerbtn" style="left: 120px;" href="index">Home</a>
-    <a class="headerbtn" style="right: 650px;" href="about">About</a>
-    <a class="headerbtn" style="right: 590px;" href="register">Register</a>
-    <a class="headerbtn" style="right: 470px;" href="donate">Donate</a>
-    <a class="headerbtn" style="right: 400px;" href="sponsors">Sponsors</a>
-    <a class="headerbtn" style="right: 330px;" href="contact">Contact</a>
   </header>
 
   <!-- Sidebar -->
   <div id="sidebar" class="sidebar">
-    <a href="page1.html">Page 1</a>
-    <a href="page2.html">Page 2</a>
-    <a href="page3.html">Page 3</a>
-    <a href="page4.html">Page 4</a>
+    <a href="index">Home</a>
+    <a href="about">About</a>
+    <a href="register">Register</a>
+    <a href="donate">Donate</a>
+    <a href="sponsors">Sponsors</a>
   </div>
 
   <script>
