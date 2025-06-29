@@ -15,10 +15,10 @@ body::-webkit-scrollbar {
 body {
     margin: 0;
     padding: 0;
-    background-color: lightskyblue;
+    background-color: #8BB8E8;
 }
 header {
-    background-color: orangered;
+    background-color: #FF6720;
     padding:3px;
     color: rgb(299,299,299);
     display: block;
@@ -36,7 +36,7 @@ header {
 }
 footer {
     padding: 2px;
-    background-color: orangered;
+    background-color: #FF6720;
     color: #000;
     height:30;
     position: fixed;
@@ -59,23 +59,23 @@ html {
 /* buttons */
 .button{
     background-color:black;
-    color:lightgrey;
+    color:#002D72;
     font-size: 70%;
     padding:9px;
     border-radius:8px;
-    border:1px solid lightgrey;
+    border:1px solid #002D72;
     text-decoration:none;
     transition: all 0.3s ease;
 }
 .button:hover {
     color:black;
-    background-color:lightgrey;
+    background-color:#002D72;
     border:1px solid black;
 }
 /*end other buttons*/
 /* header stuff */
 .headerbtn{
-    color:black;
+    color:#002D72;
     border:0px; 
     background-color:transparent;
     text-decoration:none; 
@@ -87,7 +87,7 @@ html {
     font-family: "Roboto","aktiv grotesk","Helvetica Neue","Helvetica",arial,sans-serif
 }
 .headerbtn:hover {
-    color:lightgrey;
+    color:black;
 }
 .logo {
     height:55px; 
