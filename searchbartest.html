@@ -9,19 +9,22 @@
     /* HEADER LAYOUT */
     header {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
       padding: 10px;
     }
 
     .logo {
-      height: 40px;
+      height: 60px;
       margin-left: 10px;
     }
 
     /* SEARCH STYLES */
     .search-container {
       position: relative;
+      width: 250px;
+      display: flex;
+      justify-content: flex-end;
       margin-right: 10px;
     }
 
@@ -29,15 +32,16 @@
       display: flex;
       align-items: center;
       background-color: grey;
+      height: 40px;
+      width: 40px;
       border-radius: 50%;
       padding: 5px;
       transition: width 0.3s ease, border-radius 0.3s ease;
-      width: 40px;
       overflow: hidden;
     }
 
     .search-bar.expanded {
-      width: 250px;
+      width: 100%;
       border-radius: 25px;
     }
 
@@ -71,7 +75,7 @@
       right: 0;
       background: darkblue;
       color: orange;
-      width: 250px;
+      width: 100%;
       border-radius: 10px;
       padding: 5px;
       display: none;
@@ -108,11 +112,27 @@
       padding: 5px 10px;
       color: orange;
     }
+
+    .menu-button {
+      margin-left: 10px;
+    }
   </style>
 </head>
 <body>
   <header>
-    <!-- Search bar on the right -->
+    <!-- Left: Menu button and logo -->
+    <div style="display: flex; align-items: center;">
+      <button class="menu-button" onclick="toggleSidebar()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <a href="index">
+        <img class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8" alt="ICE">
+      </a>
+    </div>
+
+    <!-- Right: Search bar -->
     <div class="search-container">
       <div class="search-bar">
         <input type="text" id="searchInput" placeholder="Search...">
@@ -120,21 +140,9 @@
         <div id="searchResults" class="search-results"></div>
       </div>
     </div>
-
-    <!-- Logo next to search bar -->
-    <a href="index">
-      <img class="logo" src="https://codehs.com/uploads/cb46df9431dd7ffe3372f71a3c7a97a8" alt="ICE">
-    </a>
-
-    <!-- Menu button (still left-justified visually if sidebar appears) -->
-    <button class="menu-button" onclick="toggleSidebar()">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </header>
 
-  <!-- Sidebar -->
+  <!-- Sidebar on the left -->
   <div id="sidebar" class="sidebar">
     <a href="index">Home</a>
     <hr style="border-top: 1px;margin: 0;">
@@ -161,14 +169,13 @@
   <!-- Sidebar toggle JS -->
   <script src="sidebar.js"></script>
 
-  <!-- Search functionality -->
+  <!-- Search bar JavaScript -->
   <script>
     const searchBtn = document.getElementById('searchBtn');
     const searchBar = document.querySelector('.search-bar');
     const searchInput = document.getElementById('searchInput');
     const searchResults = document.getElementById('searchResults');
 
-    // Configurable pages list
     const pages = [
       { title: "Home", description: "Go to homepage", link: "index" },
       { title: "About", description: "Learn more about us", link: "about" },
@@ -183,7 +190,7 @@
       searchBar.classList.add('expanded');
     });
 
-    // Collapse on mouseleave if not focused or filled
+    // Collapse if not focused and empty
     searchBar.addEventListener('mouseleave', () => {
       if (!searchInput.matches(':focus') && searchInput.value === '') {
         searchBar.classList.remove('expanded');
